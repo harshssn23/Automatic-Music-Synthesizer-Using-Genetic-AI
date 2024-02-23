@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Loudly-Home Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="{{ url_for('static',filename='css/style1.css')}}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-links1">
+      <!-- <h1>Your Company Name</h1> -->
+      <a href="#">Loudly</a>
+    </div>
+    <div class="nav-links">
+      <a href="#">Generator</a>
+      <a href="#">Discover</a>
+      <a href="#">Recommender</a>
+      <a href="#">Browse</a>
+      <a href="#">Pricing</a>
+      <a href="{{ url_for('login') }}" class="login-signup-btn">Login/Signup</a>
+    </div>
+  </nav>
+  <!-- <h1>AI MUSIC GENERATOR</h1> -->
+<!-- partial:index.partial.html -->
+<!-- <div id='container'></div>
+<div class='message' id='warning1'>
+  <h1>
+    This experiment requires the
+    <a href='https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html' target='_blank'>Web Audio API</a>
+  </h1>
+  <h2>
+    Please try in one of
+    <a href='http://caniuse.com/#feat=audio-api' target='_blank'>these browsers</a>
+  </h2>
+</div>
+<div class='message' id='warning2'>
+  <h1>
+    Safari users. You may hear audio but see no visuals. This is due to
+    <a href='https://goo.gl/6WLx1' target='_blank'>this bug</a>
+    in Safari 6
+  </h1>
+</div> -->
+<div class='message'>
+  <!-- <h1>Simple music visualiser</h1> -->
+  <h1>AI  MUSIC  GENERATOR</h1>
+  <h2>Make AI-generated music in seconds and add to your videos, social channels,
+    advertising media, podcasts, apps and more... 100% royalty-free.</h2>
+
+    <a href="{{ url_for('music') }}" id="generateMusicButton">Generate Music</a>
+
+  <!-- <h2>Loading audio&hellip;</h2> -->
+</div>
+<!-- partial -->
+  <script src='https://soulwire.github.io/sketch.js/js/sketch.min.js'></script>
+  <script  src="{{ url_for('static',filename='script/script3.js')}}"></script>
+
+</body>
+</html>

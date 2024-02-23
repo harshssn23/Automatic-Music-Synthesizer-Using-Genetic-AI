@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Loudly</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <!-- <link rel="stylesheet" href="./style.css"> -->
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style2.css')}}">
+
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="wrapper">
+  <!-- Wave bg-->
+  <div class="wave-container">
+    <div class="wave -one"></div>
+    <div class="wave -two"></div>
+    <div class="wave -three"></div>
+  </div>
+  <div class="line"></div>
+  <div class="text-wrap">
+    <div class="text"><span>L</span><span>I</span><span>S</span><span>T</span><span>E</span><span>N</span>
+      <div class="main-btn_wrapper"><i class="main-btn fa fa-play" aria-hidden="true"></i></div>
+    </div>
+  </div>
+  <div class="header">
+    <div class="burger-wrapper">
+      <div class="burger"></div>
+    </div>
+    <div class="logo-text">Listeners Playlist</div>
+    <div class="back_btn">
+      <div class="circle"></div>
+      <div class="text">Back</div>
+    </div>
+  </div>
+  <div class="nav">
+    <ul class="nav_main">
+      <li> <a href="{{ url_for('home') }}" class="nav_link">Home	</a></li>
+      <li> <a class="nav_link">Listeners</a></li>
+      <li> <a class="nav_link">Compilations</a></li>
+      <li> <a class="nav_link">LP. Mix</a></li>
+    </ul>
+    <div class="nav_divider"></div>
+    <ul class="nav_sub">
+      <li><a class="nav_link" href="">About	</a></li>
+      <li><a class="nav_link" href="">Contact Us	</a></li>
+    </ul>
+  </div>
+  <!-- <div class="mini-player">
+    <div class="track_info_wrapper">
+      <div class="track_info">
+        <div class="thumb"></div>
+        <div class="info"> -->
+          <!-- <div class="title">Friday Comes</div>
+          <div class="artist">Early</div> -->
+        <!-- </div>
+      </div>
+    </div>
+    <div class="mini-player_btn_wrapper"><i class="btn-prev fa fa-step-backward" aria-hidden="true"></i>
+      <div class="btn-switch"><i class="btn-play fa fa-play" aria-hidden="true"></i><i class="btn-pause fa fa-pause" aria-hidden="true"></i></div><i class="btn-next fa fa-step-forward" aria-hidden="true"></i><i class="btn-open-player fa fa-list" aria-hidden="true"></i>
+    </div>
+  </div> -->
+  <div class="dim"></div>
+  <div class="player" id="player">
+    <div class="playback_wrapper">
+      <div class="playback_blur"></div>
+      <div class="playback_thumb"></div>
+      <div class="playback_info">
+        <div class="title">Friday Comes</div>
+        <div class="artist">Early</div>
+      </div>
+      <div class="playback_btn_wrapper"><i class="btn-prev fa fa-step-backward" aria-hidden="true"></i>
+        <div class="btn-switch"><i class="btn-play fa fa-play" aria-hidden="true"></i><i class="btn-pause fa fa-pause" aria-hidden="true"></i></div><i class="btn-next fa fa-step-forward" aria-hidden="true"></i>
+      </div>
+      <div class="playback_timeline">
+        <div class="playback_timeline_start-time">00:31</div>
+        <div class="playback_timeline_slider">
+          <div class="slider_base"></div>
+          <div class="slider_progress"></div>
+          <div class="slider_handle"></div>
+        </div>
+        <div class="playback_timeline_end-time">03:11</div>
+      </div>
+    </div>
+    <div class="list_wrapper">
+      <ul class="list"> 
+        <li class="list_item selected"> 
+          <div class="thumb"> </div>
+          <div class="info"> 
+            <div class="title">Friday Comes</div>
+            <div class="artist">Early</div>
+          </div>
+        </li>
+        <li class="list_item"> 
+          <div class="thumb"> </div>
+          <div class="info"> 
+            <div class="title">Friday Comes</div>
+            <div class="artist">Early</div>
+          </div>
+        </li>
+        <li class="list_item"> 
+          <div class="thumb"> </div>
+          <div class="info"> 
+            <div class="title">Friday Comes</div>
+            <div class="artist">Early</div>
+          </div>
+        </li>
+        <li class="list_item"> 
+          <div class="thumb"> </div>
+          <div class="info"> 
+            <div class="title">Friday Comes</div>
+            <div class="artist">Early</div>
+          </div>
+        </li>
+        <li class="list_item"> 
+          <div class="thumb"> </div>
+          <div class="info"> 
+            <div class="title">Friday Comes</div>
+            <div class="artist">Early</div>
+          </div>
+        </li>
+        <li class="list_item"> 
+          <div class="thumb"> </div>
+          <div class="info"> 
+            <div class="title">Friday Comes</div>
+            <div class="artist">Early</div>
+          </div>
+        </li>
+        <li class="list_item"> 
+          <div class="thumb"> </div>
+          <div class="info"> 
+            <div class="title">Friday Comes</div>
+            <div class="artist">Early</div>
+          </div>
+        </li>
+        <li class="list_item"> 
+          <div class="thumb"> </div>
+          <div class="info"> 
+            <div class="title">Friday Comes</div>
+            <div class="artist">Early</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="page" id="curator">
+    <div class="curator_title_wrapper"><span> </span>
+      <div class="curator_line"></div>
+      <div class="curator_title">Create your own music</div>
+      <div class="curator_line"></div><span> </span>
+    </div>
+    <div class="curator_list">
+      <div class="curator_list_content">
+        <div class="connect_btn_wrapper item">
+
+          <form id="musicForm" action="{{ url_for('music') }}" method="post">
+
+          <div class="item">
+            <div class="connect_btn">
+              <label for="rating">Rating:</label>
+              <input type="number" name="rating" min="1" max="5" required>
+             <!-- <div class="dropdown">
+               <button class="dropdown-button" onclick="toggleDropdown('dropdown0')">Rating</button>
+               <div class="dropdown-content" id="dropdown0">
+                   <a href="#" onclick="selectOption('1', 'selectedOptionbutton0')">1</a>
+                   <a href="#" onclick="selectOption('2', 'selectedOptionbutton0')">2</a>
+                   <a href="#" onclick="selectOption('3', 'selectedOptionbutton0')">3</a>
+                   <a href="#" onclick="selectOption('4', 'selectedOptionbutton0')">4</a>
+                   <a href="#" onclick="selectOption('5', 'selectedOptionbutton0')">5</a> -->
+
+                   <!-- <input type="hidden" id="selectedOptionbutton0" name="selectedOptionbutton0" value=""> -->
+
+                     <!-- </div>
+                 </div> -->
+           </div>
+         </div>
+      </div>
+       
+      <div class="item">
+        <div class="connect_btn">
+
+          <label for="numBars">Number of <br>bars:</label>
+          <input type="number" id="numBars" name="numBars" min="1" max="8" required>
+         <!-- <div class="dropdown">
+           <button class="dropdown-button" onclick="toggleDropdown('dropdown1')">Number of <br>bars</button>
+           <div class="dropdown-content" id="dropdown1">
+               <a href="#" onclick="selectOption('1', 'selectedOptionbutton1')">1</a>
+               <a href="#" onclick="selectOption('2', 'selectedOptionbutton1')">2</a>
+               <a href="#" onclick="selectOption('3', 'selectedOptionbutton1')">3</a>
+               <a href="#" onclick="selectOption('4', 'selectedOptionbutton1')">4</a>
+               <a href="#" onclick="selectOption('5', 'selectedOptionbutton1')">5</a>
+               <a href="#" onclick="selectOption('6', 'selectedOptionbutton1')">6</a>
+               <a href="#" onclick="selectOption('7', 'selectedOptionbutton1')">7</a>
+               <a href="#" onclick="selectOption('8', 'selectedOptionbutton1')">8</a>
+               
+                </div>
+             </div> -->
+
+       </div>
+     </div>
+
+     <!-- <div class="item">
+      <div class="connect_btn">
+        
+          <label for="numBars">Number of Bars:</label>
+          <input type="number" id="numBars" name="numBars" min="1" max="8" required>
+      </div>
+  </div> -->
+
+        <div class="item">
+          <div class="connect_btn">
+
+            <label for="notesPerBar">Notes per <br> Bar:</label>
+            <input type="number" name="notesPerBar" min="1" max="4" required>
+           <!-- <div class="dropdown">
+             <button class="dropdown-button" onclick="toggleDropdown('dropdown2')">Notes per <br> bar</button>
+             <div class="dropdown-content" id="dropdown2">
+                 <a href="#" onclick="selectOption('1', 'selectedOptionbutton2')">1</a>
+                 <a href="#" onclick="selectOption('2', 'selectedOptionbutton2')">2</a>
+                 <a href="#" onclick="selectOption('3', 'selectedOptionbutton2')">3</a>
+                 <a href="#" onclick="selectOption('4', 'selectedOptionbutton2')">4</a>
+                
+                   </div>
+               </div> -->
+         </div>
+       </div>
+
+
+        <div class="item">
+          <div class="connect_btn">
+            <label for="nosteps">Number of <br> steps:</label>
+            <input type="number" name="nosteps" min="1" max="5" required>
+           <!-- <div class="dropdown"> -->
+             <!-- <button class="dropdown-button" onclick="toggleDropdown('dropdown3')">Number of <br> steps</button>
+             <div class="dropdown-content" id="dropdown3">
+                 <a href="#" onclick="selectOption('1', 'selectedOptionbutton3')">1</a>
+                 <a href="#" onclick="selectOption('2', 'selectedOptionbutton3')">2</a>
+                 <a href="#" onclick="selectOption('3', 'selectedOptionbutton3')">3</a>
+                 <a href="#" onclick="selectOption('4', 'selectedOptionbutton3')">4</a>
+                 <a href="#" onclick="selectOption('5', 'selectedOptionbutton3')">5</a>
+                
+
+                   </div>
+               </div> -->
+         </div>
+       </div>
+        
+        <div class="item">
+          <div class="connect_btn">
+            <label for="introducePauses">Introduce <br> Pauses?</label>
+            <input type="number" name="introducePauses" min="0" max="1" required>
+          </div>
+        </div>
+             
+          
+           <!-- <div class="dropdown">
+             <button class="dropdown-button" onclick="toggleDropdown('dropdown4')">Introduce <br> Pauses?</button>
+             <div class="dropdown-content" id="dropdown4">
+                 <a href="#" onclick="selectOption('True', 'selectedOptionbutton4')">True</a>
+                 <a href="#" onclick="selectOption('False', 'selectedOptionbutton4')">False</a>
+                 
+                   </div>
+               </div> -->
+         <!-- </div>
+       </div> -->
+<!-- 
+        <div class="item">
+           <div class="connect_btn">
+            <label for="key">Key</label>
+                    <select id="key" name="key">
+                      <option value="C">C</option>
+                      <option value="C#">C#</option>
+                      <option value="D">D</option>
+                      <option value="D#">D#</option>
+                      <option value="E">E</option>
+                      <option value="F">F</option>
+                      <option value="F#">F#</option>
+                      <option value="G">G</option>
+                      <option value="Gb">Gb</option>
+                      <option value="G#">G#</option>
+                      <option value="Ab">Ab</option>
+                      <option value="A">A</option>
+                      <option value="Bb">Bb</option>
+                      <option value="B">B</option>
+                    </select> -->
+                    <div class="item">
+                      <div class="connect_btn">
+            
+                        <label for="key">Key <br> Scale</label>
+                                <select id="key" name="key">
+                                  <option value="A">A</option>
+                                  <option value="GB">Gb</option>
+                                  <!-- <option value="majorBlues">Major Blues</option> -->
+                                
+                                  <option value="C">C</option>
+                                  <option value="C#">C#</option>
+                                  <option value="D">D</option>
+                                  <option value="D#">D#</option>
+                                  <option value="E">E</option>
+                                  <option value="F">F</option>
+                                  <option value="F#">F#</option>
+                                <option value="G">G</option>
+                              
+                                <option value="G#">G#</option>
+                                <option value="Ab">Ab</option>
+                               
+                                <option value="Bb">Bb</option>
+                                <option value="B">B</option>
+                                  <option value="mB">Major Blues</option>
+
+                                </select>
+
+
+
+
+            <!-- <div class="dropdown">
+              <button class="dropdown-button" onclick="toggleDropdown('dropdown5')">Key</button>
+              <div class="dropdown-content" id="dropdown5">
+                  <a href="#" onclick="selectOption('C', 'selectedOptionbutton5')">C</a>
+                  <a href="#" onclick="selectOption('C#', 'selectedOptionbutton5')">C#</a>
+                  <a href="#" onclick="selectOption('Db', 'selectedOptionbutton5')">Db</a>
+                  <a href="#" onclick="selectOption('D', 'selectedOptionbutton5')">D</a>
+                  <a href="#" onclick="selectOption('Eb', 'selectedOptionbutton5')">Eb</a>
+                  <a href="#" onclick="selectOption('Gb', 'selectedOptionbutton5')">Gb</a>
+                  <a href="#" onclick="selectOption('A#', 'selectedOptionbutton5')">A#</a>
+                  <a href="#" onclick="selectOption('F#', 'selectedOptionbutton5')">F#</a> -->
+                  <!-- <input type="hidden" id="selectedOptionbutton5" name="selectedOptionbutton5" value=""> -->
+
+                    <!-- </div>
+                </div> -->
+          </div>
+        </div>
+
+
+
+        <div class="item">
+          <div class="connect_btn">
+
+            <label for="scale">Scale</label>
+                    <select id="scale" name="scale">
+                      <option value="major">Major</option>
+                      <option value="minorM">Minor</option>
+                      <option value="majorBlues">Major Blues</option>
+                      <option value="minorBlues">Minor Blues</option>
+                      <option value="dorian">Dorian</option>
+                    </select>
+           <!-- <div class="dropdown">
+             <button class="dropdown-button" onclick="toggleDropdown('dropdown6')">Scale</button>
+             <div class="dropdown-content" id="dropdown6">
+                 <a href="#" onclick="selectOption('major', 'selectedOptionbutton6')">Major</a>
+                 <a href="#" onclick="selectOption('minorM', 'selectedOptionbutton6')">Minor</a>
+                 <a href="#" onclick="selectOption('dorian', 'selectedOptionbutton6')">Dorian</a>
+                 <a href="#" onclick="selectOption('majorBlues', 'selectedOptionbutton6')">Major Blues</a>
+                 <a href="#" onclick="selectOption('minorBlues', 'selectedOptionbutton6')">Minor Blues</a> -->
+                 <!-- <input type="hidden" id="selectedOptionbutton6" name="selectedOptionbutton6" value=""> -->
+
+                   <!-- </div>
+               </div> -->
+         </div>
+       </div>
+
+       <div class="item">
+        <div class="connect_btn">
+          <label for="scaleRoot">Scale <br> Root:</label>
+                <input type="number" name="scaleRoot" min="1" max="4" required>
+         <!-- <div class="dropdown">
+           <button class="dropdown-button" onclick="toggleDropdown('dropdown7')">Scale <br> Root</button>
+           <div class="dropdown-content" id="dropdown7">
+            <a href="#" onclick="selectOption('1', 'selectedOptionbutton7')">1</a>
+            <a href="#" onclick="selectOption('2', 'selectedOptionbutton7')">2</a>
+            <a href="#" onclick="selectOption('3', 'selectedOptionbutton7')">3</a>
+            <a href="#" onclick="selectOption('4', 'selectedOptionbutton7')">4</a>
+            
+                 </div>
+             </div> -->
+       </div>
+     </div>
+			    <button input type="submit" value="Generate" id="generateMusicButton"> Generate Music</button>
+
+     </form>
+     <!-- <input type="submit" value="Generate Music">
+    </form> -->
+            <!-- <a href="#" id="generateMusicButton">Generate Music</a> -->
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <a href="#" id="generateMusicButton">Generate Music</a> -->
+
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TimelineMax.min.js'></script>
+<!-- <script  src="./script.js"></script> -->
+<script  src="{{ url_for('static',filename='script/script2.js')}}"></script>
+
+
+</body>
+</html>
